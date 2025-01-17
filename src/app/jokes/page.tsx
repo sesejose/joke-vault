@@ -23,9 +23,16 @@ interface Joke {
   joke: string;
 }
 
-interface Term {
-  term: string;
-}
+//------------------------------
+
+// Loading more Jokes
+
+// 1) Declare a variabe with the amount of jokes to display initially.
+// 2) Then another variable with the amount I want to show / add after clicking on the Load more jokes button.
+// 3) And a ( let) variable - const State in React - with the amount of jokes to display initially - The State of this is the const declared previouslly in (1).
+// 4) After having that data add the event to button Load more to callback the function that will set the new setState for displayJokes (3).
+// 5) The new state should be the original displayJokes declared at 1) and 3) PLUS those that I want to increment - State declared at 2).
+// 6) That new state is the piece I want to SLICE from the filteredJokes main list.
 
 // ----------------------------
 
@@ -43,6 +50,13 @@ export default function JokeFetcher() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   // Array of words (strings) to store the terms from the search
   const [terms, setTerms] = useState<string[]>([]);
+  // Variables and States used in Load more
+  const initialJokeList = 6; // Number of jokes to display initially.
+  const incrementInitialJokeList = 6; // Number of jokes to add each time the "load more" button is clicked.
+  // Load more state to display jokes initially
+  const [displayJokes, setDisplayJokes] = useState(initialJokeList);
+
+  // -------------------------------
 
   useEffect(() => {
     setLoading(true);
@@ -74,8 +88,9 @@ export default function JokeFetcher() {
     })();
   }, []);
 
-  // ---------------------- Filter --------------------------------------
+  // ----------------------    Filter   --------------------------------------
 
+  // Select Option to filter (setState for filter).
   // I should check what is the filter selected and see if it match with option value.
   // If yes filter the array allJokes e.g. --> .filter() and then return / set a new setFilteredJokes(state).
   // e.g. if the joke.text ( string ) lenght is lower that 30 return a new state
@@ -98,7 +113,7 @@ export default function JokeFetcher() {
     }
   }
 
-  // ---------------------------- Search ------------------------------------
+  // ----------------------------    Search    ------------------------------------
 
   // I define the state for the Searched Term
   // I will use it to loop through the joke text an see if it includes that term.
@@ -125,6 +140,14 @@ export default function JokeFetcher() {
     console.log("Terms from Search:", terms);
   }
 
+  // -------------------------------------   Loading More Jokes   --------------------------------------------------
+
+  // Function triggered by event "Load more"
+  const loadMore = () => {
+    setDisplayJokes(displayJokes + incrementInitialJokeList);
+  };
+
+  // ----------------------------------------------------------------------------------------------------------
   return (
     <>
       <div className="container">
@@ -161,11 +184,22 @@ export default function JokeFetcher() {
       ) : (
         // <div>There are {totalJokes} totl jokes.</div>
         <ul className="mx-10 my-10 divide-y">
-          {filteredJokes.map((joke) => (
+          {filteredJokes.slice(0, displayJokes).map((joke) => (
             <Joke key={joke.id} id={joke.id} text={joke.joke} />
           ))}
         </ul>
       )}
+
+      {/* Load More Button */}
+      <section className="container">
+        <div className="">
+          {displayJokes < filteredJokes.length && (
+            <button onClick={loadMore} className="">
+              Load more jokes
+            </button>
+          )}
+        </div>
+      </section>
     </>
   );
 }
