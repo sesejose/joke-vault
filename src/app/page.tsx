@@ -229,15 +229,8 @@ export default function Home() {
           </section>
 
           {/* Load More Button */}
-          <section className="bg-gray-50 pb-20 pt-5">
+          <section className="bg-gray-50 pb-20 pt-20">
             <div className="">
-              <div className="flex flex-row justify-center text-sm p-5">
-                There are actually
-                <div>
-                  <p className="font-semibold pl-1 pr-1">{totalJokes}</p>
-                </div>
-                total jokes in this vault.
-              </div>
               <div className="columns-1 flex flex-row justify-center">
                 {displayJokes < filteredJokes.length && (
                   <button
@@ -247,6 +240,13 @@ export default function Home() {
                     Load more jokes
                   </button>
                 )}
+              </div>
+              <div className="flex flex-row justify-center text-sm p-5">
+                There are actually
+                <div>
+                  <p className="font-semibold pl-1 pr-1">{totalJokes}</p>
+                </div>
+                total jokes in this vault.
               </div>
             </div>
           </section>
