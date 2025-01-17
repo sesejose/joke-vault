@@ -169,9 +169,17 @@ export default function Home() {
                   <form className="form-search" action="search" onSubmit={searchOnSubmit}>
                     <label htmlFor="search-field"></label>
                     <div className="flex flex-row">
-                      <input id="search-field" className="p-2 rounded-tl-xl rounded-bl-xl" type="text" placeholder="Search.." name="search" value={searchTerm} onChange={searchOnChange} />
+                      <input
+                        id="search-field"
+                        className="p-2 rounded-tl-lg rounded-bl-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
+                        type="text"
+                        placeholder="Console after submit..."
+                        name="search"
+                        value={searchTerm}
+                        onChange={searchOnChange}
+                      />
                       <button className="magnify" type="submit">
-                        <span className="rounded-tr-xl rounded-br-xl border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
+                        <span className="rounded-tr-lg rounded-br-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
                           search
                         </span>
                       </button>
@@ -180,17 +188,22 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap flex-column w-full text-center justify-center">
+              <form className="flex flex-wrap flex-column w-full text-center justify-center">
                 {/* Filter Options Desktop */}
                 {/* <div className="w-full p-5">Filter</div> */}
-                <select id="filter-desk" required="" className="columns-1 w-1/2 m-5 p-5 rounded-xl" onChange={handleFilterSelected}>
+                <select
+                  id="filter-desk"
+                  required=""
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500 columns-1 w-1/2 m-5 p-5 rounded-lg"
+                  onChange={handleFilterSelected}
+                >
                   {/* <optgroup label="Option Group" className="group"> */}
                   <option value="All jokes">All jokes</option>
                   <option value="Shorter">Shorter</option>
                   <option value="Larger">Larger</option>
                   {/* </optgroup> */}
                 </select>
-              </div>
+              </form>
             </section>
           </div>
 
