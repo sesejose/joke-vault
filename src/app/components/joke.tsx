@@ -1,4 +1,4 @@
-export default function Joke({ text, id }) {
+export default function Joke({ id, text }: { id: string; text: string }) {
   return (
     <>
       <li className="flex flex-wrap sm:flex-column md:flex-row justify-between gap-x-6 py-5 gap-5">

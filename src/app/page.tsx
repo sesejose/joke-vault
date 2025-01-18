@@ -32,8 +32,8 @@ export default function Home() {
   const [filteredJokes, setFilteredJokes] = useState<Joke[]>([]);
   // Filter - when selected fom the list should change the state
   const [filter, setFilter] = useState<string>("All jokes");
-  const [shorter, setShorter] = useState<number>(0);
-  const [larger, setLarger] = useState<number>(0);
+  // const [shorter, setShorter] = useState<number>(0);
+  // const [larger, setLarger] = useState<number>(0);
   // Search
   const [searchTerm, setSearchTerm] = useState<string>("");
   // Array of words (strings) to store the terms from the search
@@ -83,7 +83,7 @@ export default function Home() {
   // If yes filter the array allJokes e.g. --> .filter() and then return / set a new setFilteredJokes(state).
   // e.g. if the joke.text ( string ) lenght is lower that 30 return a new state
 
-  function handleFilterSelected(event) {
+  function handleFilterSelected(event: React.ChangeEvent<HTMLSelectElement>) {
     const filterSelected = event.target.value;
     setFilter(filterSelected);
     if (filterSelected === "Shorter") {
@@ -99,17 +99,18 @@ export default function Home() {
     if (filterSelected === "All jokes") {
       return setFilteredJokes(allJokes);
     }
+    console.log(filter);
   }
 
   // ----------------------------    Search    ------------------------------------
 
   // I define the state for the Searched Term
   // I will use it to loop through the joke text an see if it includes that term.
-  function searchOnChange(event) {
+  function searchOnChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchTerm(event.target.value);
   }
 
-  function searchOnSubmit(event) {
+  function searchOnSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const filtered = filteredJokes.filter((joke) => {
       const text = searchTerm.toLowerCase();
@@ -193,7 +194,6 @@ export default function Home() {
                 {/* <div className="w-full p-5">Filter</div> */}
                 <select
                   id="filter-desk"
-                  required=""
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500 columns-1 w-1/2 m-5 p-5 rounded-lg"
                   onChange={handleFilterSelected}
                 >
