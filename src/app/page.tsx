@@ -101,7 +101,11 @@ export default function Home() {
     if (filterSelected === "All jokes") {
       return setFilteredJokes(allJokes);
     }
+    if (filterSelected === "Liked") {
+      return setFilteredJokes(bookmarks);
+    }
     console.log(filter);
+    console.log(bookmarks);
   }
 
   // ----------------------------    Search    ------------------------------------
@@ -183,7 +187,7 @@ export default function Home() {
                           id="search-field"
                           className="p-2 rounded-tl-lg rounded-bl-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
                           type="text"
-                          placeholder="Console after submit..."
+                          placeholder="Check console after submiting..."
                           name="search"
                           value={searchTerm}
                           onChange={searchOnChange}
@@ -210,6 +214,7 @@ export default function Home() {
                     <option value="All jokes">All jokes</option>
                     <option value="Short">Short</option>
                     <option value="Long">Long</option>
+                    <option value="Liked">Liked</option>
                     {/* </optgroup> */}
                   </select>
                 </form>

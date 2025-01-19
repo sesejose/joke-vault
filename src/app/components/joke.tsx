@@ -10,21 +10,33 @@ export default function Joke({ id, text }: { id: string; text: string }) {
   // Star icon just to show in in the DOM
   const [star, setStar] = useState<boolean>(false);
 
-  function markAsFunny(context: JokeContextType) {
-    // const btnStar = event.target.value;
-    if (context.mark === true) {
-      context.setMark(false);
-      console.log(context.mark);
-    } else {
-      context.setMark(true);
-      console.log(context.mark);
-      addToBookmarks(context);
-    }
+  // function markAsFunny(context: JokeContextType) {
+  //   // const btnStar = event.target.value;
+  //   if (context.mark === true) {
+  //     context.setMark(false);
+  //     // console.log(context.mark);
+  //   } else {
+  //     context.setMark(true);
+  //     // console.log(context.mark);
+  //     addToBookmarks(context);
+  //   }
+  // }
 
-    function addToBookmarks(context: JokeContextType) {
-      // ----------
-      console.log(context.bookmarks);
+  function addToBookmarks(context: JokeContextType) {
+    // I check if this joke is already in bookmarks
+    // There are no bookmarks yet on it
+    const isBookmarked = context.bookmarks.some((joke) => joke.id === id);
+
+    if (isBookmarked) {
+      // But if it was there, remove it
+      const updated = context.bookmarks.filter((joke) => joke.id !== id);
+      context.setBookmarks(updated);
+    } else {
+      // Otherwise, add it
+      context.setBookmarks((arr) => [...arr, { id, joke: text }]);
     }
+    // console.log(context.bookmarks);
+    // I have the the bookmarks now - I should just define filtered jokes on Home
   }
 
   if (!context) {
@@ -37,23 +49,25 @@ export default function Joke({ id, text }: { id: string; text: string }) {
         <div className="flex gap-x-4">
           <div className="min-w-0 flex-auto">
             <p className="text-lg font-semibold text-gray-900">{text}</p>
+
             <button
               onClick={() => {
                 if (star === true) {
                   setStar(false);
-                  markAsFunny(context);
+                  addToBookmarks(context);
                 } else {
                   setStar(true);
-                  markAsFunny(context);
+                  addToBookmarks(context);
                 }
               }}
             >
-              Add to bookmarks here
+              Add to bookmarks
             </button>
             {star ? ": Added" : ""}
             <p className="hidden mt-1 truncate text-sm text-gray-500">ID: {id}</p>
           </div>
         </div>
+
         <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
           <button
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"

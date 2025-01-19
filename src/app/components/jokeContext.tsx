@@ -4,7 +4,7 @@ import { interfaceJoke } from "../interfaces/interfaceJoke";
 /** Define an interface or type for the context shape. */
 
 export interface JokeContextType {
-  // declaring on interfaces type for my context
+  // declaring type form interfaces for my context
   bookmarks: interfaceJoke[];
   setBookmarks: React.Dispatch<React.SetStateAction<interfaceJoke[]>>;
   // Declaring another type for another context
