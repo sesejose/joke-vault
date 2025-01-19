@@ -15,18 +15,17 @@ export default function Joke({ id, text }: { id: string; text: string }) {
     if (context.mark === true) {
       context.setMark(false);
       console.log(context.mark);
-      console.log(context.bookmarks);
     } else {
       context.setMark(true);
       console.log(context.mark);
+      addToBookmarks(context);
+    }
+
+    function addToBookmarks(context: JokeContextType) {
+      // ----------
+      console.log(context.bookmarks);
     }
   }
-
-  // function handleClik() {
-  //   // If context is null, do nothing or return early
-  //   if (!context) return;
-  //   markAsFunny(context);
-  // }
 
   if (!context) {
     return <p>No Provider found</p>;

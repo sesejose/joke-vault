@@ -88,15 +88,15 @@ export default function Home() {
   function handleFilterSelected(event: React.ChangeEvent<HTMLSelectElement>) {
     const filterSelected = event.target.value;
     setFilter(filterSelected);
-    if (filterSelected === "Shorter") {
-      const filterShorter = allJokes.filter((joke) => joke.joke.length <= 80);
-      // console.log(filterShorter); // console to see how many - now I should display them, replace by allJokes.
-      return setFilteredJokes(filterShorter);
+    if (filterSelected === "Short") {
+      const filterShort = allJokes.filter((joke) => joke.joke.length <= 80);
+      // console.log(filterShort); // console to see how many - now I should display them, replace by allJokes.
+      return setFilteredJokes(filterShort);
     }
-    if (filterSelected === "Larger") {
-      const filterLarger = allJokes.filter((joke) => joke.joke.length >= 80);
-      // console.log(filterLarger); // console to see how many - now I should display them, replace by allJokes.
-      return setFilteredJokes(filterLarger);
+    if (filterSelected === "Long") {
+      const filterLong = allJokes.filter((joke) => joke.joke.length >= 80);
+      // console.log(filterLong); // console to see how many - now I should display them, replace by allJokes.
+      return setFilteredJokes(filterLong);
     }
     if (filterSelected === "All jokes") {
       return setFilteredJokes(allJokes);
@@ -208,8 +208,8 @@ export default function Home() {
                   >
                     {/* <optgroup label="Option Group" className="group"> */}
                     <option value="All jokes">All jokes</option>
-                    <option value="Shorter">Shorter</option>
-                    <option value="Larger">Larger</option>
+                    <option value="Short">Short</option>
+                    <option value="Long">Long</option>
                     {/* </optgroup> */}
                   </select>
                 </form>
