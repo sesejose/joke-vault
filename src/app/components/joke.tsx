@@ -85,7 +85,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
             }}
           >
             <Image aria-hidden src="/soundwave.svg" alt="star icon" width={16} height={16} />
-            <p>Listen it</p>
+            <p className="sm:text-base text-sm">Listen it</p>
           </button>
           <p className="text-md text-gray-900"></p>
           {/* <p className="mt-1 text-xs/5 text-gray-500">Lyd</p> */}
