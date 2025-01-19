@@ -1,11 +1,58 @@
+"use client";
+
+import { useContext, useState } from "react";
+import jokeContext, { JokeContextType } from "./jokeContext";
+
 export default function Joke({ id, text }: { id: string; text: string }) {
+  // Bookmark and Star
+  // Importing and using the context
+  const context = useContext(jokeContext);
+  // Star icon just to show in in the DOM
+  const [star, setStar] = useState<boolean>(false);
+
+  function markAsFunny(context: JokeContextType) {
+    // const btnStar = event.target.value;
+    if (context.mark === true) {
+      context.setMark(false);
+      console.log(context.mark);
+      console.log(context.bookmarks);
+    } else {
+      context.setMark(true);
+      console.log(context.mark);
+    }
+  }
+
+  // function handleClik() {
+  //   // If context is null, do nothing or return early
+  //   if (!context) return;
+  //   markAsFunny(context);
+  // }
+
+  if (!context) {
+    return <p>No Provider found</p>;
+  }
+
   return (
     <>
       <li className="flex flex-wrap sm:flex-column md:flex-row justify-between gap-x-6 py-5 gap-5">
         <div className="flex gap-x-4">
           <div className="min-w-0 flex-auto">
             <p className="text-lg font-semibold text-gray-900">{text}</p>
-            <p className="mt-1 truncate text-sm text-gray-500">ID: {id}</p>
+            <button
+              onClick={() => {
+                if (star === true) {
+                  setStar(false);
+                  markAsFunny(context);
+                } else {
+                  setStar(true);
+                  markAsFunny(context);
+                }
+              }}
+            >
+              Add to bookmarks here
+            </button>
+            {star ? ": Added" : ""}
+            <p className="hidden mt-1 truncate text-sm text-gray-500">ID: {id}</p>
           </div>
         </div>
         <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
