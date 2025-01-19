@@ -48,7 +48,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
     <>
       <li className="flex flex-wrap sm:flex-column md:flex-row justify-between gap-x-6 py-5 gap-5">
         <div className="flex gap-x-4">
-          <div className="min-w-0 flex gap-5 items-center">
+          <div className="sm:flex md:flex sm:flex-col md:flex-row gap-5 items-center">
             <button
               onClick={() => {
                 if (star === true) {
@@ -61,7 +61,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
               }}
             >
               {/* Add to bookmarks */}
-              {star ? <Image aria-hidden src="/added.svg" alt="star icon" width={16} height={16} /> : <Image aria-hidden src="/removed.svg" alt="star icon" width={16} height={16} />}
+              {star ? <Image aria-hidden src="/added.svg" alt="star icon" width={24} height={24} /> : <Image aria-hidden src="/removed.svg" alt="star icon" width={24} height={24} />}
             </button>
             <div>
               <p className="text-lg font-semibold text-gray-900">{text}</p>

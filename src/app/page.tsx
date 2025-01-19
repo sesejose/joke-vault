@@ -163,7 +163,7 @@ export default function Home() {
       <jokeContext.Provider value={{ mark, setMark, bookmarks, setBookmarks }}>
         <div>
           <main>
-            <div className="bg-white p-10">
+            <div className="bg-white pt-10 pl-3 pr-3 pb-3">
               <section className="flex flex-wrap md:flex-nowrap sm:flex-column md:flex-row sm:columns-1 md:columns-3 md:space-around md:items-center w-full gap-10">
                 <div className="flex sm:flex-column flex-wrap w-full text-center justify-center">
                   <div className="flex flex-row flew-wrap w-full text-center justify-center text-3xl font-extrabold p-5">
@@ -258,12 +258,12 @@ export default function Home() {
                     </button>
                   )}
                 </div>
-                <div className="flex flex-row justify-center text-sm p-5">
-                  There are actually
+                <div className="flex flex-wrap sm:flex-row justify-center text-sm p-5">
+                  In fact, there are
                   <div>
                     <p className="font-semibold pl-1 pr-1">{totalJokes}</p>
                   </div>
-                  total jokes in this vault.
+                  jokes in total.
                 </div>
               </div>
             </section>

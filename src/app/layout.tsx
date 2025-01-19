@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "The Joke Vault",
-  description: "for storing and organizing jokes like treasured gems :)",
+  description: "s for storing and organizing jokes like treasured gems.",
 };
 
 export default function RootLayout({
