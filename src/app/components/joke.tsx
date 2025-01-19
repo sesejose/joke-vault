@@ -2,6 +2,7 @@
 
 import { useContext, useState } from "react";
 import jokeContext, { JokeContextType } from "./jokeContext";
+import Image from "next/image";
 
 export default function Joke({ id, text }: { id: string; text: string }) {
   // Bookmark and Star
@@ -47,9 +48,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
     <>
       <li className="flex flex-wrap sm:flex-column md:flex-row justify-between gap-x-6 py-5 gap-5">
         <div className="flex gap-x-4">
-          <div className="min-w-0 flex-auto">
-            <p className="text-lg font-semibold text-gray-900">{text}</p>
-
+          <div className="min-w-0 flex gap-5 items-center">
             <button
               onClick={() => {
                 if (star === true) {
@@ -61,10 +60,15 @@ export default function Joke({ id, text }: { id: string; text: string }) {
                 }
               }}
             >
-              Add to bookmarks
+              {/* Add to bookmarks */}
+              {star ? <Image aria-hidden src="/added.svg" alt="star icon" width={16} height={16} /> : <Image aria-hidden src="/removed.svg" alt="star icon" width={16} height={16} />}
             </button>
-            {star ? ": Added" : ""}
-            <p className="hidden mt-1 truncate text-sm text-gray-500">ID: {id}</p>
+            <div>
+              <p className="text-lg font-semibold text-gray-900">{text}</p>
+            </div>
+            <div>
+              <p className="hidden mt-1 truncate text-sm text-gray-500">ID: {id}</p>
+            </div>
           </div>
         </div>
 
@@ -80,7 +84,8 @@ export default function Joke({ id, text }: { id: string; text: string }) {
               speechSynthesis.speak(utterance);
             }}
           >
-            Listen it
+            <Image aria-hidden src="/soundwave.svg" alt="star icon" width={16} height={16} />
+            <p>Listen it</p>
           </button>
           <p className="text-md text-gray-900"></p>
           {/* <p className="mt-1 text-xs/5 text-gray-500">Lyd</p> */}

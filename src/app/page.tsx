@@ -101,7 +101,7 @@ export default function Home() {
     if (filterSelected === "All jokes") {
       return setFilteredJokes(allJokes);
     }
-    if (filterSelected === "Liked") {
+    if (filterSelected === "Marked") {
       return setFilteredJokes(bookmarks);
     }
     console.log(filter);
@@ -194,7 +194,8 @@ export default function Home() {
                         />
                         <button className="magnify" type="submit">
                           <span className="rounded-tr-lg rounded-br-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
-                            search
+                            <Image aria-hidden src="/search.svg" alt="star icon" width={16} height={16} />
+                            <p>Search</p>
                           </span>
                         </button>
                       </div>
@@ -214,7 +215,7 @@ export default function Home() {
                     <option value="All jokes">All jokes</option>
                     <option value="Short">Short</option>
                     <option value="Long">Long</option>
-                    <option value="Liked">Liked</option>
+                    <option value="Marked">Marked</option>
                     {/* </optgroup> */}
                   </select>
                 </form>
@@ -269,16 +270,16 @@ export default function Home() {
           </main>
           <footer className="bg-foreground row-start-3 flex gap-6 flex-wrap items-center justify-center p-20">
             <a className="text-white flex items-center gap-2 hover:underline hover:underline-offset-4" href="https://github.com/sesejose" target="_blank" rel="noopener noreferrer">
-              <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-              GitHub →
+              <Image aria-hidden src="/link.svg" alt="Globe icon" width={16} height={16} />
+              GitHub
             </a>
             <a className="text-white flex items-center gap-2 hover:underline hover:underline-offset-4" href="https://grapixmo.com/" target="_blank">
-              <Image aria-hidden src="/globe.svg" alt="File icon" width={16} height={16} />
-              Web →
+              <Image aria-hidden src="/link.svg" alt="File icon" width={16} height={16} />
+              Portfolio Web
             </a>
             <a className="text-white flex items-center gap-2 hover:underline hover:underline-offset-4" href="https://www.linkedin.com/in/sesejose/" target="_blank" rel="noopener noreferrer">
-              <Image aria-hidden src="/file.svg" alt="Window icon" width={16} height={16} />
-              Linkedin →
+              <Image aria-hidden src="/link.svg" alt="Window icon" width={16} height={16} />
+              Linkedin
             </a>
           </footer>
         </div>
