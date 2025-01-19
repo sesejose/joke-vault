@@ -46,7 +46,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
 
   return (
     <>
-      <li className="flex flex-wrap sm:flex-column md:flex-row justify-between gap-x-6 py-5 gap-5">
+      <li className="relative flex flex-wrap sm:flex-column md:flex-row justify-between gap-x-6 py-5 gap-5">
         <div className="flex gap-x-4">
           <div className="sm:flex md:flex sm:flex-col md:flex-row gap-5 items-center">
             <button
@@ -64,7 +64,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
               {star ? <Image aria-hidden src="/added.svg" alt="star icon" width={24} height={24} /> : <Image aria-hidden src="/removed.svg" alt="star icon" width={24} height={24} />}
             </button>
             <div>
-              <p className="text-lg font-semibold text-gray-900">{text}</p>
+              <p className="text-lg font-semibold text-gray-900 pt-5 sm:pt-5 md:pt-0">{text}</p>
             </div>
             <div>
               <p className="hidden mt-1 truncate text-sm text-gray-500">ID: {id}</p>
@@ -72,7 +72,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
           </div>
         </div>
 
-        <div className="shrink-0 sm:flex sm:flex-col sm:items-end">
+        <div className="shrink-0 sm:flex sm:flex-col sm:items-end absolute right-0 sm:bottom-15 md:bottom-2.5">
           <button
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             onClick={() => {
