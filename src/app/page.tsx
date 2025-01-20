@@ -164,9 +164,9 @@ export default function Home() {
         <div>
           <main>
             <div className="bg-white pt-10 pl-3 pr-3 pb-3">
-              <section className="flex flex-wrap md:flex-nowrap sm:flex-column md:flex-row sm:columns-1 md:columns-3 md:space-around md:items-center w-full gap-10">
+              <section className="flex flex-wrap md:flex-nowrap sm:flex-column md:flex-row sm:columns-1 md:columns-3 md:space-around md:items-center w-full gap-5 sm:gap-5 md:gap-10">
                 <div className="flex sm:flex-column flex-wrap w-full text-center justify-center">
-                  <div className="flex flex-row flew-wrap w-full text-center justify-center text-3xl font-extrabold p-5 text-emerald-600">
+                  <div className="flex flex-row flew-wrap w-full text-center justify-center text-3xl font-extrabold p-2.5 sm:p-2.5 md:p-2.5 text-emerald-600">
                     <a href="">The Joke Vault</a>
                   </div>
                   {/* <div className="flex flex-row justify-center text-sm p-5">
@@ -178,7 +178,7 @@ export default function Home() {
               </div> */}
                 </div>
 
-                <div id="search" className="flex flex-row w-full text-center justify-center p-5 rounded-full">
+                <div id="search" className="flex flex-row w-full text-center justify-center p-2.5 sm:p-2.5 md:p-2.5 rounded-full">
                   <div className="">
                     <form className="form-search" action="search" onSubmit={searchOnSubmit}>
                       <label htmlFor="search-field"></label>
@@ -208,7 +208,7 @@ export default function Home() {
                   {/* <div className="w-full p-5">Filter</div> */}
                   <select
                     id="filter-desk"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-base rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500 columns-1 w-1/2 m-5 p-5 rounded-lg"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-base rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500 columns-1 w-1/2 m-2.5 sm:m-2.5 md:m-2.5 p-2.5 sm:p-2.5 md:p-2.5 rounded-lg"
                     onChange={handleFilterSelected}
                   >
                     {/* <optgroup label="Option Group" className="group"> */}
@@ -223,7 +223,7 @@ export default function Home() {
             </div>
 
             <section className="container mx-auto">
-              <div className="text-background flex flex-row justify-start w-full text-sm p-5">
+              <div className="text-gray-900 dark:text-gray-900 flex flex-row justify-start w-full text-sm p-5">
                 There were found
                 <div>
                   <p className="font-semibold pl-1 pr-1">{filteredJokes.length}</p>
@@ -259,7 +259,7 @@ export default function Home() {
                     </button>
                   )}
                 </div>
-                <div className="text-background flex flex-wrap sm:flex-row justify-center text-sm p-5">
+                <div className="text-gray-900 dark:text-gray-900 flex flex-wrap sm:flex-row justify-center text-sm p-5">
                   In fact, there are
                   <div>
                     <p className="font-semibold pl-1 pr-1">{totalJokes}</p>
