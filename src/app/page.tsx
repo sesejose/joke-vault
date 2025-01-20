@@ -185,7 +185,7 @@ export default function Home() {
                       <div className="flex flex-row">
                         <input
                           id="search-field"
-                          className="p-2 rounded-tl-lg rounded-bl-lg bg-gray-50 border border-emerald-300 text-gray-900 text-sm focus:emerald-600 focus:border-emerald-600 block p-2.5 dark:bg-emerald-700 dark:border-emerald-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-600 dark:focus:border-emerald-600"
+                          className="p-2 rounded-tl-lg rounded-bl-lg dark:rounded-tl-lg rounded-bl-lg bg-gray-50 border border-emerald-300 text-gray-900 text-sm focus:emerald-600 focus:border-emerald-600 block p-2.5 dark:bg-gray-50 dark:border-emerald-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-600 dark:focus:border-emerald-600"
                           type="text"
                           placeholder="Check console after submiting..."
                           name="search"
@@ -193,7 +193,7 @@ export default function Home() {
                           onChange={searchOnChange}
                         />
                         <button className="magnify" type="submit">
-                          <span className="rounded-tr-lg rounded-br-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-emerald-600 text-background gap-2 hover:bg-emerald-700 dark:hover:bg-emerald-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
+                          <span className="rounded-tr-lg rounded-br-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-emerald-600 text-white gap-2 hover:bg-emerald-700 dark:hover:bg-emerald-700 text-sm sm:text-base text-white h-10 sm:h-12 px-4 sm:px-5">
                             <Image aria-hidden src="/search.svg" alt="search icon" width={24} height={24} />
                             <p>Search</p>
                           </span>
@@ -252,7 +252,7 @@ export default function Home() {
                   {displayJokes < filteredJokes.length && (
                     <button
                       onClick={loadMore}
-                      className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-red-600 text-background gap-2 hover:bg-red-700 dark:hover:bg-red-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+                      className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-red-600 text-white gap-2 hover:bg-red-700 dark:hover:bg-red-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
                     >
                       <Image aria-hidden src="/smile.svg" alt="smile icon" width={24} height={24} />
                       Load more jokes
