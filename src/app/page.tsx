@@ -232,7 +232,7 @@ export default function Home() {
               </div>
 
               {loading ? (
-                <div className="container flex justify-center columns-1 text-center p-20">
+                <div className="container flex justify-center columns-1 text-center p-20 text-background">
                   <p>Loading all jokes...</p>
                 </div>
               ) : (
