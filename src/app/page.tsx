@@ -166,7 +166,7 @@ export default function Home() {
             <div className="bg-white pt-10 pl-3 pr-3 pb-3">
               <section className="flex flex-wrap md:flex-nowrap sm:flex-column md:flex-row sm:columns-1 md:columns-3 md:space-around md:items-center w-full gap-10">
                 <div className="flex sm:flex-column flex-wrap w-full text-center justify-center">
-                  <div className="flex flex-row flew-wrap w-full text-center justify-center text-3xl font-extrabold p-5">
+                  <div className="flex flex-row flew-wrap w-full text-center justify-center text-3xl font-extrabold p-5 text-emerald-600">
                     <a href="">The Joke Vault</a>
                   </div>
                   {/* <div className="flex flex-row justify-center text-sm p-5">
@@ -185,7 +185,7 @@ export default function Home() {
                       <div className="flex flex-row">
                         <input
                           id="search-field"
-                          className="p-2 rounded-tl-lg rounded-bl-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
+                          className="p-2 rounded-tl-lg rounded-bl-lg bg-gray-50 border border-emerald-300 text-gray-900 text-sm focus:emerald-600 focus:border-emerald-600 block p-2.5 dark:bg-emerald-700 dark:border-emerald-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-600 dark:focus:border-emerald-600"
                           type="text"
                           placeholder="Check console after submiting..."
                           name="search"
@@ -193,8 +193,8 @@ export default function Home() {
                           onChange={searchOnChange}
                         />
                         <button className="magnify" type="submit">
-                          <span className="rounded-tr-lg rounded-br-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
-                            <Image aria-hidden src="/search.svg" alt="star icon" width={16} height={16} />
+                          <span className="rounded-tr-lg rounded-br-lg border border-solid border-transparent transition-colors flex items-center justify-center bg-emerald-600 text-background gap-2 hover:bg-emerald-700 dark:hover:bg-emerald-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5">
+                            <Image aria-hidden src="/search.svg" alt="search icon" width={24} height={24} />
                             <p>Search</p>
                           </span>
                         </button>
@@ -252,8 +252,9 @@ export default function Home() {
                   {displayJokes < filteredJokes.length && (
                     <button
                       onClick={loadMore}
-                      className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+                      className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-red-600 text-background gap-2 hover:bg-red-700 dark:hover:bg-red-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
                     >
+                      <Image aria-hidden src="/smile.svg" alt="smile icon" width={24} height={24} />
                       Load more jokes
                     </button>
                   )}
@@ -268,7 +269,7 @@ export default function Home() {
               </div>
             </section>
           </main>
-          <footer className="bg-foreground row-start-3 flex gap-6 flex-wrap items-center justify-center p-20">
+          <footer className="bg-violet-800 row-start-3 flex gap-6 flex-wrap items-center justify-center p-20">
             <a className="text-white flex items-center gap-2 hover:underline hover:underline-offset-4" href="https://github.com/sesejose" target="_blank" rel="noopener noreferrer">
               <Image aria-hidden src="/link.svg" alt="Globe icon" width={16} height={16} />
               GitHub
