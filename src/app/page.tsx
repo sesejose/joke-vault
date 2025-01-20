@@ -223,7 +223,7 @@ export default function Home() {
             </div>
 
             <section className="container mx-auto">
-              <div className="flex flex-row justify-start w-full text-sm p-5">
+              <div className="text-background flex flex-row justify-start w-full text-sm p-5">
                 There were found
                 <div>
                   <p className="font-semibold pl-1 pr-1">{filteredJokes.length}</p>
@@ -259,7 +259,7 @@ export default function Home() {
                     </button>
                   )}
                 </div>
-                <div className="flex flex-wrap sm:flex-row justify-center text-sm p-5">
+                <div className="text-background flex flex-wrap sm:flex-row justify-center text-sm p-5">
                   In fact, there are
                   <div>
                     <p className="font-semibold pl-1 pr-1">{totalJokes}</p>
