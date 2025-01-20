@@ -254,7 +254,7 @@ export default function Home() {
                       onClick={loadMore}
                       className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-emerald-600 text-white gap-2 hover:bg-emerald-700 dark:hover:bg-emerald-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
                     >
-                      <Image aria-hidden src="/smile.svg" alt="smile icon" width={24} height={24} />
+                      <Image aria-hidden src="/smilewhite.svg" alt="smile icon" width={24} height={24} />
                       Load more jokes
                     </button>
                   )}
