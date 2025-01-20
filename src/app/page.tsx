@@ -208,7 +208,7 @@ export default function Home() {
                   {/* <div className="w-full p-5">Filter</div> */}
                   <select
                     id="filter-desk"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-base rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500 columns-1 w-1/2 m-2.5 sm:m-2.5 md:m-2.5 p-2.5 sm:p-2.5 md:p-2.5 rounded-lg"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-base rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-50 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-900 dark:focus:ring-gray-500 dark:focus:border-gray-500 columns-1 w-1/2 m-2.5 sm:m-2.5 md:m-2.5 p-2.5 sm:p-2.5 md:p-2.5 rounded-lg"
                     onChange={handleFilterSelected}
                   >
                     {/* <optgroup label="Option Group" className="group"> */}
@@ -252,7 +252,7 @@ export default function Home() {
                   {displayJokes < filteredJokes.length && (
                     <button
                       onClick={loadMore}
-                      className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-red-600 text-white gap-2 hover:bg-red-700 dark:hover:bg-red-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+                      className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-emerald-600 text-white gap-2 hover:bg-emerald-700 dark:hover:bg-emerald-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
                     >
                       <Image aria-hidden src="/smile.svg" alt="smile icon" width={24} height={24} />
                       Load more jokes

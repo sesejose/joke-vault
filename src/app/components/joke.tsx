@@ -74,7 +74,7 @@ export default function Joke({ id, text }: { id: string; text: string }) {
 
         <div className="shrink-0 sm:flex sm:flex-col sm:items-end absolute right-0 sm:bottom-15 md:bottom-2.5">
           <button
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-amber-600 text-background gap-2 hover:bg-amber-700 dark:hover:bg-amber-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-amber-500 text-background gap-2 hover:bg-amber-600 dark:hover:bg-amber-600 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             onClick={() => {
               const joke = text;
               const utterance = new SpeechSynthesisUtterance(joke);
