@@ -24,7 +24,7 @@ import { interfaceJoke } from "./interfaces/interfaceJoke";
 export default function Home() {
   const [allJokes, setAllJokes] = useState<interfaceJoke[]>([]);
   const [totalJokes, setTotalJokes] = useState<number>(0);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   // To put together all the jokes that match the filter
   const [filteredJokes, setFilteredJokes] = useState<interfaceJoke[]>([]);
   // Filter - when selected fom the list should change the state
@@ -34,10 +34,11 @@ export default function Home() {
   // Array of words (strings) to store the terms from the search
   const [terms, setTerms] = useState<string[]>([]);
   // Variables and States used in Load more
-  const initialJokeList = 6; // Number of jokes to display initially.
-  const incrementInitialJokeList = 6; // Number of jokes to add each time the "load more" button is clicked.
+  const initialJokeList = 30; // Number of jokes to display initially - 30 the max.
+  const incrementInitialJokeList = 30; // Number of jokes to add each time the "load more" button is clicked.
   // Load more state to display jokes initially
   const [displayJokes, setDisplayJokes] = useState(initialJokeList);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   // ----------------------------------
   // Bookmarks
   const [mark, setMark] = useState<boolean>(false);
@@ -47,34 +48,34 @@ export default function Home() {
   // const context = useContext(jokeContext);
 
   // -------------------------------
+  async function fetchOnePage() {
+    // setLoading(true);
+    const url = `https://icanhazdadjoke.com/search?limit=30&page=${currentPage}`;
+    const res = await fetch(url, { headers: { Accept: "application/json" } });
+    const data = await res.json();
+    // totalPages = data.total_pages;
+    setTotalJokes(data.total_jokes);
+    // jokes.push(...data.results);
+    setAllJokes([...allJokes, ...data.results]);
+    // console.log("Total Pages", totalPages - currentPage);
+    // if (currentPage < totalPages) {
+    //   return fetchOnePage(currentPage + 1);
+    // }
+    setCurrentPage(currentPage + 1); // It starts from 1 !
+    console.log("current page;", currentPage);
+    setFilteredJokes([...allJokes, ...data.results]);
+    // setLoading(false);
+  }
 
   useEffect(() => {
-    setLoading(true);
-
     (async function fetchAllJokes() {
-      const page = 1;
-      let totalPages = 1;
-      const jokes: interfaceJoke[] = [];
-
-      async function fetchOnePage(currentPage: number) {
-        const url = `https://icanhazdadjoke.com/search?limit=30&page=${currentPage}`;
-        const res = await fetch(url, { headers: { Accept: "application/json" } });
-        const data = await res.json();
-        jokes.push(...data.results);
-        totalPages = data.total_pages;
-        setTotalJokes(data.total_jokes);
-        console.log("Total Pages", totalPages - currentPage);
-        if (currentPage < totalPages) {
-          return fetchOnePage(currentPage + 1);
-        }
-      }
-
-      await fetchOnePage(page); // starts recursion
-      setAllJokes(jokes);
+      // const page = 1;
+      // const totalPages = 1;
+      // const jokes: interfaceJoke[] = [];
+      await fetchOnePage(); // starts recursion
+      // setAllJokes(jokes);
       // I also set the state for filteredJokes as initial value.
       // It state changes later with the filters.
-      setFilteredJokes(jokes);
-      setLoading(false);
     })();
   }, []);
 
@@ -154,6 +155,7 @@ export default function Home() {
 
   // Function triggered by event "Load more"
   const loadMore = () => {
+    fetchOnePage();
     setDisplayJokes(displayJokes + incrementInitialJokeList);
   };
 
@@ -231,25 +233,32 @@ export default function Home() {
                 jokes.
               </div>
 
-              {loading ? (
+              {/* {loading ? (
                 <div className="container flex justify-center columns-1 text-center p-20 text-background">
                   <p>Loading all jokes...</p>
                 </div>
               ) : (
-                // <div>There are {totalJokes} totl jokes.</div>
                 <ul className="p-5 divide-y">
                   {filteredJokes.slice(0, displayJokes).map((joke) => (
                     <Joke key={joke.id} id={joke.id} text={joke.joke} />
                   ))}
                 </ul>
-              )}
+              )} */}
+
+              {/* Now we have no longer recursing fetch so ternary operator is not necessary - just the ul */}
+              <ul className="p-5 divide-y">
+                {filteredJokes.slice(0, displayJokes).map((joke) => (
+                  <Joke key={joke.id} id={joke.id} text={joke.joke} />
+                ))}
+              </ul>
             </section>
 
             {/* Load More Button */}
             <section className="bg-white pb-20 pt-20">
               <div className="">
                 <div className="columns-1 flex flex-row justify-center">
-                  {displayJokes < filteredJokes.length && (
+                  {/* With the recuring it was just minus, ut since they are the same, to show the button should be minus and equal ! */}
+                  {displayJokes <= filteredJokes.length && (
                     <button
                       onClick={loadMore}
                       className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-emerald-600 text-white gap-2 hover:bg-emerald-700 dark:hover:bg-emerald-700 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
